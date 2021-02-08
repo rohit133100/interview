@@ -44,7 +44,7 @@ class SummaryTest {
 
     private MovieSummary whoLiked(Movie movie) {
         return MovieSummary.builder()
-                // TODO
-                .build();
+            // TODO
+            .build();
     }
 }
