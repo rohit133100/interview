@@ -10,5 +10,4 @@ import lombok.Value;
 public class Movie {
 
     String title;
-    Set<User> likedBy;
 }
