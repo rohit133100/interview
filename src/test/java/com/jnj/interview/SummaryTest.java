@@ -1,6 +1,12 @@
 package com.jnj.interview;
 
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -44,16 +50,11 @@ class SummaryTest {
     private Set<Movie> movies = Set.of(titanic, infinityWars, badIntentions);
 
     @Test
-    public void whoLikedTitanicShouldReturnCorrectSummary() {
-        Assertions
-                .assertThat(whoLiked(titanic.getTitle()))
-                .containsOnly(
-                        marco.getName(),
-                        kenny.getName()
-                );
+    public void theBestMovieIsInfinityWars() {
+        Assertions.assertThat(bestMovie()).hasValue(infinityWars);
     }
 
-    private Set<String> whoLiked(String movieTitle) {
-        return Set.of();
+    private Optional<Movie> bestMovie() {
+        return Optional.empty();
     }
 }
