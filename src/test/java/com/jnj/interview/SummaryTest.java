@@ -53,7 +53,7 @@ class SummaryTest {
                 );
     }
 
-    private Set<String> whoLiked(String movieTite) {
+    private Set<String> whoLiked(String movieTitle) {
         return Set.of();
     }
 }
