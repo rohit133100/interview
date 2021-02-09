@@ -44,12 +44,12 @@ class SummaryTest {
     private Set<Movie> movies = Set.of(titanic, infinityWars, badIntentions);
 
     @Test
-    public void whoLikedTitanicAndBadIntentionsShouldReturnCorrectSummary() {
+    public void whoLikedTitanicShouldReturnCorrectSummary() {
         Assertions
                 .assertThat(whoLiked(titanic.getTitle()))
                 .containsOnly(
                         marco.getName(),
-                        jeff.getName()
+                        kenny.getName()
                 );
     }
 
