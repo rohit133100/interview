@@ -10,5 +10,5 @@ import lombok.Value;
 public class User {
 
     String name;
-    Set<Movie> liked;
+    Set<String> liked;
 }
