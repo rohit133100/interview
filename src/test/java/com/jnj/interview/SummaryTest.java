@@ -47,13 +47,13 @@ class SummaryTest {
 
 
     @Test
-    public void theBestMovieIsInfinityWars() {
+    public void listOfMoviesSortedByLikeDescending() {
         Assertions
-                .assertThat(movieTitlesByRate())
+                .assertThat(movieTitlesByLikeDescending())
                 .containsExactly(INFINITY_WARS, BAD_INTENTIONS, TITANIC);
     }
 
-    private List<String> movieTitlesByRate() {
+    private List<String> movieTitlesByLikeDescending() {
         return List.of();
     }
 }
