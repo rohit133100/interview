@@ -1,5 +1,7 @@
 package com.jnj.interview;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -40,7 +42,7 @@ class SummaryTest {
                     .build(),
             User.builder()
                     .name("Kenny")
-                    .liked(Set.of(TITANIC, BAD_INTENTIONS))
+                    .liked(Set.of(BAD_INTENTIONS))
                     .build(),
             User.builder()
                     .name("Kristof")
@@ -51,12 +53,12 @@ class SummaryTest {
 
     @Test
     public void theBestMovieIsInfinityWars() {
-        Assertions.assertThat(bestMovie()).hasValueSatisfying(movie ->
-                Assertions.assertThat(movie.getTitle()).isEqualTo(INFINITY_WARS)
-        );
+        Assertions
+                .assertThat(movieTitlesByRate())
+                .containsExactly(INFINITY_WARS, BAD_INTENTIONS, TITANIC);
     }
 
-    private Optional<Movie> bestMovie() {
-        return Optional.empty();
+    private List<String> movieTitlesByRate() {
+        return List.of();
     }
 }
