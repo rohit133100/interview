@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class Movie {
-
-    String title;
+public class ArtistMean {
+    String name;
+    Double recordPriceMean;
 }

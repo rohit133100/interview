@@ -1,59 +1,81 @@
 package com.jnj.interview;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class SummaryTest {
 
-    public static final String TITANIC = "Titanic";
+    private static final String EXTRAWELT = "Extrawelt";
+    private static final String TRENTEMOLLER = "Trentemoller";
+    private static final String BREJCHA = "Boris Brejcha";
 
-    public static final String INFINITY_WARS = "Infinity Wars";
-
-    public static final String BAD_INTENTIONS = "Bad Intentions";
-
-    private final Set<Movie> movies = Set.of(
-            Movie.builder()
-                    .title(TITANIC)
+    private final List<Record> records = List.of(
+            Record.builder()
+                    .artist(EXTRAWELT)
+                    .name("Schone Neue Extrawelt")
+                    .price(12.45)
                     .build(),
-            Movie.builder()
-                    .title(INFINITY_WARS)
+            Record.builder()
+                    .artist(EXTRAWELT)
+                    .name("In Aufrhur")
+                    .price(11.32)
                     .build(),
-            Movie.builder()
-                    .title(BAD_INTENTIONS)
+            Record.builder()
+                    .artist(EXTRAWELT)
+                    .name("Fear of an Extra Planet")
+                    .price(10.50)
+                    .build(),
+            Record.builder()
+                    .artist(TRENTEMOLLER)
+                    .name("The Last Resort")
+                    .price(13.34)
+                    .build(),
+            Record.builder()
+                    .artist(TRENTEMOLLER)
+                    .name("Lost")
+                    .price(12.21)
+                    .build(),
+            Record.builder()
+                    .artist(TRENTEMOLLER)
+                    .name("Early Workx")
+                    .price(11.99)
+                    .build(),
+            Record.builder()
+                    .artist(BREJCHA)
+                    .name("Fruhe Autisten")
+                    .price(10.99)
+                    .build(),
+            Record.builder()
+                    .artist(BREJCHA)
+                    .name("Feuerfalter")
+                    .price(11.99)
+                    .build(),
+            Record.builder()
+                    .artist(BREJCHA)
+                    .name("22")
+                    .price(12.05)
                     .build()
     );
-
-    private final Set<User> users = Set.of(
-            User.builder()
-                    .name("Marco")
-                    .liked(Set.of(TITANIC, INFINITY_WARS))
-                    .build(),
-            User.builder()
-                    .name("Jeff")
-                    .liked(Set.of(INFINITY_WARS, BAD_INTENTIONS))
-                    .build(),
-            User.builder()
-                    .name("Kenny")
-                    .liked(Set.of(BAD_INTENTIONS))
-                    .build(),
-            User.builder()
-                    .name("Kristof")
-                    .liked(Set.of(INFINITY_WARS))
-                    .build()
-    );
-
 
     @Test
     public void listOfMoviesSortedByLikeDescending() {
         Assertions
-                .assertThat(movieTitlesByLikeDescending())
-                .containsExactly(INFINITY_WARS, BAD_INTENTIONS, TITANIC);
+                .assertThat(bestPaidArtist(records))
+                .hasValue(ArtistMean.builder()
+                        .name(TRENTEMOLLER)
+                        .recordPriceMean(12.513333333333334)
+                        .build());
     }
 
-    private List<String> movieTitlesByLikeDescending() {
-        return List.of();
+    private Optional<ArtistMean> bestPaidArtist(List<Record> records) {
+        return Optional.empty();
     }
 }
