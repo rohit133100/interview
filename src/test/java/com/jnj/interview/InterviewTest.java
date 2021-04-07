@@ -1,20 +1,17 @@
 package com.jnj.interview;
 
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class SummaryTest {
+class InterviewTest {
 
     private static final String EXTRAWELT = "Extrawelt";
+
     private static final String TRENTEMOLLER = "Trentemoller";
+
     private static final String BREJCHA = "Boris Brejcha";
 
     private final List<Record> records = List.of(
