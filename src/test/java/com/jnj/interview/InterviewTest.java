@@ -63,7 +63,7 @@ class InterviewTest {
     );
 
     @Test
-    public void listOfMoviesSortedByLikeDescending() {
+    public void bestPaidArtistIsTrentemoller() {
         Assertions
                 .assertThat(bestPaidArtist(records))
                 .hasValue(ArtistMean.builder()
