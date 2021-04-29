@@ -1,8 +1,9 @@
 package com.jnj.interview;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import lombok.val;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -73,6 +74,11 @@ class InterviewTest {
     }
 
     private Optional<ArtistMean> bestPaidArtist(List<Record> records) {
-        return Optional.empty();
+           Map<String, Double> groupRecordsWithName = records.stream()
+                .collect(Collectors.groupingBy(Record::getArtist,
+                                        Collectors.averagingDouble(Record::getPrice)));
+        val stringDoubleEntry = groupRecordsWithName.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        ArtistMean artistMean = new ArtistMean(stringDoubleEntry.getKey(),stringDoubleEntry.getValue());
+        return Optional.of(artistMean);
     }
 }
